@@ -1,0 +1,62 @@
+extends ./chrome.jade
+
+block content
+  style.
+    .ui-app-loading {
+      text-align: left;
+      font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      position:fixed;
+      top:0px;
+      left:0px;
+      line-height: 1.42857143;
+      color: #444444;
+    }
+
+
+
+
+  div.ui-app-loading Loading...
+
+  script.
+    window.onload = function () {
+
+      var hideLoadingMessage = /#.*[?&]embed(&|$)/.test(window.location.href);
+      if (hideLoadingMessage) {
+        var loading = document.querySelector('.ui-app-loading h1');
+        loading.removeChild(loading.lastChild);
+      }
+
+      function bundleFile(filename) {
+        var anchor = document.createElement('a');
+        anchor.setAttribute('href', !{JSON.stringify(bundlePath)} + '/' + filename);
+        return anchor.href;
+      }
+
+      var files = [
+        bundleFile('commons.style.css'),
+        bundleFile('#{app.id}.style.css'),
+        bundleFile('commons.bundle.js'),
+        bundleFile('#{app.id}.bundle.js')
+      ];
+
+      (function next() {
+        var file = files.shift();
+        if (!file) return;
+
+        var type = /\.js$/.test(file) ? 'script' : 'link';
+        var dom = document.createElement(type);
+        dom.setAttribute('async', '');
+
+        if (type === 'script') {
+          dom.setAttribute('src', file);
+          dom.addEventListener('load', next);
+          document.head.appendChild(dom);
+        } else {
+          dom.setAttribute('rel', 'stylesheet');
+          dom.setAttribute('href', file);
+          document.head.appendChild(dom);
+          next();
+        }
+      }());
+    };
