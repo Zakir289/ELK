@@ -152,6 +152,9 @@ Install dependencies
 
 ```npm install```
 
+** if you want to start the elastic server from code**
+
+```npm run elasticsearch```
 
 **Start the development server.**
 ```npm start```
