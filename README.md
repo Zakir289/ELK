@@ -165,6 +165,16 @@ kibana will be running under 5601 **localhost:5601**
 
 We can configure the port numbers accordingly
 
+
+**Kibana's UI is not looking good from my perspective, so I thought making it some what bright and removed the things which are not useful to me.**
+
+**plese find the old kibana UI **
+![alt tag](https://github.com/Zakir289)
+
+**changed UI**
+![alt tag](https://github.com/Zakir289/)
+
+
 The main objective here include kibana into a site for angular.js application
 I will be doing using Iframe
 
