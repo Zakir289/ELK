@@ -175,6 +175,22 @@ We can configure the port numbers accordingly
 ![alt tag](https://github.com/Zakir289/)
 
 
+#### Some explanation about ELK stack set up
+
+**Logstash:** It will process the incoming logs
+**Elastic search:** Stores the logs
+**Kibana:** Provides an interface to visualize the logs.
+
+Combining the above 3 components is called as ELK server
+
+Flow of aboue three
+
+--> Logstash --> Elastic search --> Kibana --> user
+
+Proxy may come next to kibana depending on the requirement
+
+
+
 The main objective here include kibana into a site for angular.js application
 I will be doing using Iframe
 
