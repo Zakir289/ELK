@@ -1,5 +1,7 @@
 
-# kibana
+
+
+# How to integrate kibana in your project
 
 ### 1.Install Logstash
 ```echo 'deb http://packages.elasticsearch.org/logstash/1.5/debian stable main' | sudo tee /etc/apt/sources.list.d/logstash.list```
